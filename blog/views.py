@@ -1,5 +1,23 @@
-from django.shortcuts import render
+from typing import Any
+from django.db.models.query import QuerySet
+from django.views.generic import ListView
+from .models import Post, Category
 
-# Create your views here.
-def index(request):
-     return render(request, '../templates/index.html')
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'blog/category_list.html'
+
+class PostByCategoryView(ListView):
+    context_object_name = 'posts'
+    template_name = 'blog/post_list.html'
+
+    def get_queryset(self):
+        self.category = Category.objects.get(slug=self.kwargs['slug'])
+        queryset = Post.objects.filter(category=self.category)
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.category
+        return context
+        
