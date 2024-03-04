@@ -5,5 +5,5 @@
 * Django_mptt
 * Django_mptt_admin
 
-!Вид на frontend: 
-(.images/frontend_header.png)
+Вид на frontend: 
+![alt text](images/frontend_header.png)
