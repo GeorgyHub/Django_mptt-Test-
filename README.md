@@ -7,3 +7,9 @@
 
 Вид на frontend: 
 ![alt text](images/frontend_header.png)
+
+Вид на запись: 
+![alt text](images/post.png)
+
+Вид на Admin: 
+![alt text](images/admin.png)
